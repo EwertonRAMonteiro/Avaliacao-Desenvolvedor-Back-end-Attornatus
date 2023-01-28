@@ -1,11 +1,14 @@
 package com.Attornatus.desafio.controllers;
 
 import com.Attornatus.desafio.ResourceNotFoundException;
+import com.Attornatus.desafio.dto.EnderecoRequest;
 import com.Attornatus.desafio.entities.Endereco;
 import com.Attornatus.desafio.entities.Pessoa;
 import com.Attornatus.desafio.repositories.EnderecoRepository;
 import com.Attornatus.desafio.repositories.PessoaRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,29 +40,23 @@ public class EnderecoController {
     }
 
     @PostMapping("/enderecos")
-    public Endereco createEndereco(@RequestBody Endereco endereco) {
-        Pessoa pessoa = pessoaRepository.findById(endereco.getPessoa().getId()).get();
-        endereco.setPessoa(pessoa);
+    public Endereco createEndereco(@RequestBody EnderecoRequest request) {
 
-        return enderecoRepository.save(endereco);
+        return enderecoRepository.save(Endereco.of(request));
     }
 
     @PutMapping("/enderecos/{id}")
-    public ResponseEntity<Endereco> updateEndereco(@PathVariable Long id, @RequestBody Endereco enderecoDetails) {
+    public ResponseEntity<Endereco> updateEndereco(@PathVariable Long id, @RequestBody EnderecoRequest request) {
 
-        Endereco endereco =  enderecoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("endereco não encontrado"));
+       enderecoRepository.findById(id)
+               .orElseThrow(() -> new ResourceNotFoundException("endereco não encontrado"));
 
-        Pessoa pessoa = pessoaRepository.findById(enderecoDetails.getPessoa().getId()).get();
+       // BeanUtils.copyProperties(endereco,request,"id");
+        var enderec = Endereco.of(request);
+        enderec.setId(id);
 
-        endereco.setLagradouro(enderecoDetails.getLagradouro());
-        endereco.setNumCasa(enderecoDetails.getNumCasa());
-        endereco.setCidade(enderecoDetails.getCidade());
-        endereco.setCep(enderecoDetails.getCep());
-        endereco.setEndPrincipal(enderecoDetails.getEndPrincipal());
-        endereco.setPessoa(pessoa);
 
-        Endereco newEndereco = enderecoRepository.save(endereco);
+        Endereco newEndereco = enderecoRepository.save(enderec);
 
         return ResponseEntity.ok(newEndereco);
     }

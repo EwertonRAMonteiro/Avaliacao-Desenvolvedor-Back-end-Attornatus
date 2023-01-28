@@ -19,7 +19,7 @@ import java.util.List;
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
@@ -32,4 +32,8 @@ public class Pessoa {
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
+
+    public Pessoa(Long id){
+        this.id = id;
+    }
 }

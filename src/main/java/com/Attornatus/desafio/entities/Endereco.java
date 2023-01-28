@@ -1,7 +1,9 @@
 package com.Attornatus.desafio.entities;
 
+import com.Attornatus.desafio.dto.EnderecoRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +15,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Endereco extends Pessoa implements Serializable {
+@Builder
+public class Endereco {
 
-
-    @Serial
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -39,9 +39,19 @@ public class Endereco extends Pessoa implements Serializable {
     private Boolean endPrincipal;
 
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "idPessoa")
     private Pessoa pessoa;
 
-    public 
+    public static Endereco of(EnderecoRequest request) {
+        return Endereco
+                .builder()
+                .lagradouro(request.getLagradouro())
+                .numCasa(request.getNumCasa())
+                .cep(request.getCep())
+                .cidade(request.getCidade())
+                .endPrincipal(request.getEndPrincipal())
+                .pessoa(new Pessoa(request.getPessoaId()))
+                .build();
+    }
 }
