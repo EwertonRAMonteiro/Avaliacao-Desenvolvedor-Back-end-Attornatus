@@ -1,5 +1,6 @@
 package com.Attornatus.desafio.controllers;
 
+import com.Attornatus.desafio.dto.PessoaRequest;
 import com.Attornatus.desafio.entities.Pessoa;
 import com.Attornatus.desafio.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,42 +14,43 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api")
+@RequestMapping("api")
 public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping("/pessoas")
+    @GetMapping("pessoas")
     public List<Pessoa> getAllPessoas(){
         return pessoaRepository.findAll();
     }
 
-    @GetMapping("/pessoas/{id}")
+    @GetMapping("pessoas/{id}")
     public ResponseEntity<Pessoa> getPessoaById(@PathVariable Long id){
         Pessoa pessoa = pessoaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Person doesn't exist"));
         return ResponseEntity.ok(pessoa);
     }
 
-    @PostMapping("/pessoas")
-    public Pessoa createPessoa(@RequestBody Pessoa pessoa){
-        return pessoaRepository.save(pessoa);
+    @PostMapping("pessoas")
+    public Pessoa createPessoa(@RequestBody PessoaRequest request){
+        return pessoaRepository.save(Pessoa.of(request));
     }
 
-    @PutMapping("/pessoas/{id}")
-    public ResponseEntity<Pessoa> updatePessoa(@PathVariable Long id, @RequestBody Pessoa pessoaDetails){
-        Pessoa pessoa = pessoaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Person doesn't exist"));
+    @PutMapping("pessoas/{id}")
+    public ResponseEntity<Pessoa> updatePessoa(@PathVariable Long id, @RequestBody PessoaRequest request){
+        pessoaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Person doesn't exist"));
 
-        pessoa.setNome(pessoaDetails.getNome());
-        pessoa.setDataNasc(pessoaDetails.getDataNasc());
+        var pessoa = Pessoa.of(request);
+        pessoa.setId(id);
 
         Pessoa newPessoa = pessoaRepository.save(pessoa);
 
         return ResponseEntity.ok(newPessoa);
     }
 
-    @DeleteMapping("/pessoas/{id}")
+    @DeleteMapping("pessoas/{id}")
     public ResponseEntity<Map<String, Boolean>> deletePessoa(@PathVariable Long id){
         Pessoa pessoa = pessoaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Person doesn't exist"));

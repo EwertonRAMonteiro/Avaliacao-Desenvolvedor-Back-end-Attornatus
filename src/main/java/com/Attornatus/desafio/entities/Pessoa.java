@@ -1,8 +1,10 @@
 package com.Attornatus.desafio.entities;
 
+import com.Attornatus.desafio.dto.PessoaRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +38,13 @@ public class Pessoa {
 
     public Pessoa(Long id){
         this.id = id;
+    }
+
+    public static Pessoa of(PessoaRequest request) {
+        return Pessoa
+                .builder()
+                .nome(request.getNome())
+                .dataNasc(request.getDataNasc())
+                .build();
     }
 }

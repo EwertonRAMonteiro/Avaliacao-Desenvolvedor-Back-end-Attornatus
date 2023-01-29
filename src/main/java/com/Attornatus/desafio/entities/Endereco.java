@@ -7,9 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 @Entity
 @Table(name="Endereco")
 @NoArgsConstructor
@@ -23,8 +20,8 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private long id;
 
-    @Column(name = "lagradouro", nullable = false, length = 45)
-    private String lagradouro;
+    @Column(name = "logradouro", nullable = false, length = 45)
+    private String logradouro;
 
     @Column(name = "numeroCasa", nullable = false, length = 5)
     private String numCasa;
@@ -46,7 +43,7 @@ public class Endereco {
     public static Endereco of(EnderecoRequest request) {
         return Endereco
                 .builder()
-                .lagradouro(request.getLagradouro())
+                .logradouro(request.getLogradouro())
                 .numCasa(request.getNumCasa())
                 .cep(request.getCep())
                 .cidade(request.getCidade())

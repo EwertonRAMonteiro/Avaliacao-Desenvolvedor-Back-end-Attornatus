@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EnderecoRequest {
 
-    private String lagradouro;
+    private String logradouro;
 
 
     private String numCasa;
