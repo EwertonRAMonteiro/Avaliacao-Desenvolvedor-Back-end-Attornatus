@@ -20,11 +20,13 @@ public class PessoaController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    //metodo listar pessoas
     @GetMapping("pessoas")
     public List<Pessoa> getAllPessoas(){
         return pessoaRepository.findAll();
     }
 
+    //metodo listar pessoas por id
     @GetMapping("pessoas/{id}")
     public ResponseEntity<Pessoa> getPessoaById(@PathVariable Long id){
         Pessoa pessoa = pessoaRepository.findById(id)
@@ -32,11 +34,13 @@ public class PessoaController {
         return ResponseEntity.ok(pessoa);
     }
 
+    //metodo criar nova pessoa
     @PostMapping("pessoas")
     public Pessoa createPessoa(@RequestBody PessoaRequest request){
         return pessoaRepository.save(Pessoa.of(request));
     }
 
+    //metodo atualizar dados de pessoas
     @PutMapping("pessoas/{id}")
     public ResponseEntity<Pessoa> updatePessoa(@PathVariable Long id, @RequestBody PessoaRequest request){
         pessoaRepository.findById(id)
@@ -50,6 +54,7 @@ public class PessoaController {
         return ResponseEntity.ok(newPessoa);
     }
 
+    //metodo delete
     @DeleteMapping("pessoas/{id}")
     public ResponseEntity<Map<String, Boolean>> deletePessoa(@PathVariable Long id){
         Pessoa pessoa = pessoaRepository.findById(id)

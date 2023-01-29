@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//criando entidade endereco
 @Entity
 @Table(name="pessoa")
 @NoArgsConstructor
@@ -32,6 +33,7 @@ public class Pessoa {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataNasc;
 
+    //criando relacionamento para endereco
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
@@ -40,6 +42,7 @@ public class Pessoa {
         this.id = id;
     }
 
+    //criando builder para dto
     public static Pessoa of(PessoaRequest request) {
         return Pessoa
                 .builder()

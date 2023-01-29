@@ -24,11 +24,13 @@ public class EnderecoController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    //metodo listar enderecos
     @GetMapping("enderecos")
     public List<Endereco> getAllEnderecos() { return  enderecoRepository.findAll();
 
     }
 
+    //metodo listar endereco por id
     @GetMapping("enderecos/{id}")
     public ResponseEntity<Endereco> getEnderecoById(@PathVariable Long id){
         Endereco endereco = enderecoRepository.findById(id)
@@ -36,12 +38,14 @@ public class EnderecoController {
         return ResponseEntity.ok(endereco);
     }
 
+    //metodo para criar novos endereços
     @PostMapping("enderecos")
     public Endereco createEndereco(@RequestBody EnderecoRequest request) {
 
         return enderecoRepository.save(Endereco.of(request));
     }
 
+    //metodo atualizar
     @PutMapping("enderecos/{id}")
     public ResponseEntity<Endereco> updateEndereco(@PathVariable Long id, @RequestBody EnderecoRequest request) {
 
@@ -57,6 +61,7 @@ public class EnderecoController {
         return ResponseEntity.ok(newEndereco);
     }
 
+    //metodo deletar
     @DeleteMapping("enderecos/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteEndereco(@PathVariable Long id) {
 
@@ -69,6 +74,7 @@ public class EnderecoController {
     return ResponseEntity.ok(response);
     }
 
+    //metodo listar enderecos por pessoa com id
     @GetMapping("enderecos/pessoa/{id}")
     public ResponseEntity<List<Endereco>> encontrarTodoEnderecoDePessoa(@PathVariable("id") Long id) {
 

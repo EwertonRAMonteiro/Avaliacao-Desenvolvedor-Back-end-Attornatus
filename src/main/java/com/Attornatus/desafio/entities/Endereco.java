@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//criando entendidade endereco
 @Entity
 @Table(name="Endereco")
 @NoArgsConstructor
@@ -14,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Endereco {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -35,11 +35,12 @@ public class Endereco {
     @Column(name = "endPrincipal", nullable = false)
     private Boolean endPrincipal;
 
-
+    // relacionamento entre a tabela pessoa
     @ManyToOne
     @JoinColumn(name = "idPessoa")
     private Pessoa pessoa;
 
+    //criando builder para dto
     public static Endereco of(EnderecoRequest request) {
         return Endereco
                 .builder()
