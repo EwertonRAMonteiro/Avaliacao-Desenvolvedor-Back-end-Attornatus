@@ -69,4 +69,14 @@ public class EnderecoController {
     return ResponseEntity.ok(response);
     }
 
+    @GetMapping("enderecos/pessoa/{id}")
+    public ResponseEntity<List<Endereco>> encontrarTodoEnderecoDePessoa(@PathVariable("id") Long id) {
+
+        var pessoa= pessoaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("pessoa inexistente"));
+        var enderecos = pessoa.getEnderecos();
+
+        return ResponseEntity.ok(enderecos);
+    }
+
 }
