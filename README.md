@@ -41,14 +41,14 @@
 
 <a href="https://skillicons.dev">
   <h2>Skills<h2/>
-  <img src="https://skillicons.dev/icons?i=git,idea,spring,java,git" />
+  <img src="https://skillicons.dev/icons?i=idea,spring,java,git" />
 </a>
 <br>
 
-* **Banco de Dados:** H2
-* **Back-end:** Java 17, Maven, SpringBoot 3.0                             
-* **Ferramentas:** IntelliJ, , Postman
-* **dependencias:** H2, DevTools, Web, Jpa, Lombok
+* Banco de Dados: H2
+* Back-end: Java 17, Maven, SpringBoot 3.0                             
+* Ferramentas: IntelliJ, Postman
+* dependencias: H2, DevTools, Web, Jpa, Lombok
 
 <br>
   
