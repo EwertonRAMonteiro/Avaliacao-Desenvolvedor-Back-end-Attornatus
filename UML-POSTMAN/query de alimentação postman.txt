@@ -1,0 +1,36 @@
+****Post pessoa****
+{
+    "nome": "jorge amadel",
+    "dataNasc": "2005-09-24"
+}
+{
+    "nome": "jorge amadel",
+    "dataNasc": "1997-05-12"
+}
+
+
+****Post endereco****
+{
+    "logradouro": "rua batista",
+    "numCasa": "32",
+    "cidade": "itamaraca",
+    "cep": "59409-555",
+    "endPrincipal": false,
+    "pessoaId": 1
+}
+{
+    "logradouro": "rua das flores",
+    "numCasa": "4012",
+    "cidade": "recife",
+    "cep": "59409-409",
+    "endPrincipal": false,
+    "pessoaId": 1
+}
+{
+    "logradouro": "av. serviniro firmino",
+    "numCasa": "193",
+    "cidade": "Paulista",
+    "cep": "59409-500",
+    "endPrincipal": false,
+    "pessoaId": 2
+}
