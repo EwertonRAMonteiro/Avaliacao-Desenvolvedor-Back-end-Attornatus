@@ -16,7 +16,6 @@
 <br> 
 ☑️	Poder informar qual endereço é o principal da pessoa : Concluído :heavy_check_mark:
  
-
 <br> 
 
 ## :raising_hand: Desafio 2/2 - Uma Pessoa deve ter os seguintes campos:  
