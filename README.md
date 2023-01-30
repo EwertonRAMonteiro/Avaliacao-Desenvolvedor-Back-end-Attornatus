@@ -39,7 +39,6 @@
 ## :computer: Tecnologias Utilizadas
 
 <a href="https://skillicons.dev">
-  <h2>Skills<h2/>
   <img src="https://skillicons.dev/icons?i=idea,spring,java,git" />
 </a>
 <br>
