@@ -15,7 +15,6 @@
 ☑️	Listar endereços da pessoa : Concluído :heavy_check_mark:
 <br> 
 ☑️	Poder informar qual endereço é o principal da pessoa : Concluído :heavy_check_mark:
- 
 <br> 
 
 ## :raising_hand: Desafio 2/2 - Uma Pessoa deve ter os seguintes campos:  
@@ -33,27 +32,22 @@
 ☑️ Número : Concluído :heavy_check_mark:
 <br> 
 ☑️ Cidade : Concluído :heavy_check_mark:
-
 <br>
 
 ## :computer: Tecnologias Utilizadas
-
 <a href="https://skillicons.dev">
   <img src="https://skillicons.dev/icons?i=idea,spring,java,git" />
 </a>
 <br>
-
 * Banco de Dados: H2
 * Back-end: Java 17, Maven, SpringBoot 3.0                             
 * Ferramentas: IntelliJ, Postman
 * dependencias: H2, DevTools, Web, Jpa, Lombok
-
 <br>
   
 ## :mag: Adendo:
-  <h2>
+  <p>
   Foi adicionado o metodo de Delete
-  </h2>
- 
+  </p>
 <br>
 
