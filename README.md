@@ -22,11 +22,17 @@
 ## :raising_hand: Desafio 2/2 - Uma Pessoa deve ter os seguintes campos:  
 
 ☑️ Nome : Concluído :heavy_check_mark:
+<br> 
 ☑️ Data de nascimento : Concluído :heavy_check_mark:
+<br> 
 :house: Endereço:
+<br> 
 ☑️ Logradouro : Concluído :heavy_check_mark:
+<br> 
 ☑️ CEP : Concluído :heavy_check_mark:
+<br> 
 ☑️ Número : Concluído :heavy_check_mark:
+<br> 
 ☑️ Cidade : Concluído :heavy_check_mark:
 
 <br>
