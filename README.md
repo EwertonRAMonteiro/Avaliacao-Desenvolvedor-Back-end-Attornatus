@@ -45,7 +45,7 @@
 <br> 
 * Ferramentas: IntelliJ, Postman
 <br> 
-* dependencias: H2, DevTools, Web, Jpa, Lombok
+* Dependências: H2, DevTools, Web, Jpa, Lombok
 <br>
   
 ## :mag: Adendo:
