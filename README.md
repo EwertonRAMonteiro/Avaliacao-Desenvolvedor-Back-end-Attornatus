@@ -1,4 +1,4 @@
-## :computer: Desafio Tecnico Attornatus
+# :computer: Desafio Tecnico Attornatus
 
 ## :dart: Desafio 1/2 - Usando Spring boot, crie uma API simples para gerenciar Pessoas. Esta API deve permitir:  
 
