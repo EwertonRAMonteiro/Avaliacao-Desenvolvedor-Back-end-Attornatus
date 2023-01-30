@@ -40,8 +40,11 @@
 </a>
 <br>
 * Banco de Dados: H2
-* Back-end: Java 17, Maven, SpringBoot 3.0                             
+<br> 
+* Back-end: Java 17, Maven, SpringBoot 3.0    
+<br> 
 * Ferramentas: IntelliJ, Postman
+<br> 
 * dependencias: H2, DevTools, Web, Jpa, Lombok
 <br>
   
